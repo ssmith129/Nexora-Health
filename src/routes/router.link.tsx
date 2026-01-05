@@ -548,8 +548,13 @@ export const publicRoutes = [
   {
     path: "/",
     name: "Root",
-    element: <Navigate to={route.dashboard} />,
+    element: (
+      <Suspense fallback={suspenseFallback}>
+        <Dashboard />
+      </Suspense>
+    ),
     route: Route,
+    meta_title: "Dashboard",
   },
   {
     id: "1",
